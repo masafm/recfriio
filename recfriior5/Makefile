@@ -10,7 +10,8 @@ ifdef B25
   B25_CLEAN = clean_b25
   B25_OBJS = B25Decoder.o
   B25_OBJS_EXT = $(B25_PATH)/arib_std_b25.o $(B25_PATH)/b_cas_card.o $(B25_PATH)/multi2.o $(B25_PATH)/ts_section_parser.o
-  PCSC_LDLIBS ?= `pkg-config libpcsclite --libs`
+#  PCSC_LDLIBS ?= `pkg-config libpcsclite --libs`
+  PCSC_LDLIBS ?= ../../softcas/libpcsclite-1.0.0.a
   B25_LIBS = $(PCSC_LDLIBS) -lm
 endif
 

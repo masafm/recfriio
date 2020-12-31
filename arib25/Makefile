@@ -1,6 +1,7 @@
 # PC/SC Lite libraries and headers.
 PCSC_CFLAGS ?= `pkg-config libpcsclite --cflags`
-PCSC_LDLIBS ?= `pkg-config libpcsclite --libs`
+#PCSC_LDLIBS ?= `pkg-config libpcsclite --libs`
+PCSC_LDLIBS ?= ../../softcas/libpcsclite-1.0.0.a
 
 CC     = gcc
 CFLAGS = -Wall -O2 -g $(PCSC_CFLAGS) -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
@@ -18,7 +19,7 @@ td.o: td.c arib_std_b25.h portable.h b_cas_card.h
 ts_section_parser.o: ts_section_parser.c ts_section_parser.h ts_common_types.h portable.h ts_section_parser_error_code.h
 
 $(TARGET): $(OBJS)
-	$(CC) $(LDLIBS) -o $(TARGET) $(OBJS)
+	$(CC) -o $(TARGET) $(OBJS) $(LDLIBS)
 
 clean:
 	rm -f *.o

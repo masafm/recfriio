@@ -1,0 +1,6 @@
+*~
+*.o
+arib25/b25
+as11loader/as11loader
+recfriior5/Makefile.dep
+recfriior5/recfriio
